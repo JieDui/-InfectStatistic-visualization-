@@ -1,3 +1,64 @@
-<p>
-  head works!
-</p>
+<ion-grid  class="patient-types">
+    <p class="country">全国疫情 <span class="last-date">统计截止2019.3.10</span></p>
+    <ion-row>
+        <ion-col size-sm>
+            <ion-row>
+                <ion-col>
+                    累计确诊
+                    <br>
+                    <span class="confirmed">{{infected}}</span>
+                    <br>
+                    <span class="than-yesterday">较昨日</span>
+                    <span class="confirmed-add">+29</span>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col size-sm>
+            <ion-row>
+                <ion-col>累计治愈
+                    <br>
+                    <span class="cured">{{cured}}</span>
+                    <br>
+                    <span class="than-yesterday">较昨日</span>
+                    <span class="cured-add">+1430</span>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col size-sm>
+            <ion-row>
+                <ion-col>累计死亡
+                    <br>
+                    <span class="dead-number">3140</span>
+                    <br>
+                    <span class="than-yesterday">较昨日</span>
+                    <span class="dead-add">+29</span>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size-sm>
+            <ion-row>
+                <ion-col>现有确诊
+                    <br>
+                    <span class="current-confirmed">17679</span>
+                    <br>
+                    <span class="than-yesterday">较昨日</span>
+                    <span class="current-confirmed-add">-1418</span>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+        <ion-col size-sm>
+            <ion-row>
+                <ion-col>
+                    <span>现有疑似</span>
+                    <br>
+                    <span class="current-suspected">349</span>
+                    <br>
+                    <span class="than-yesterday">较昨日</span>
+                    <span class="current-suspected-add">+36</span>
+                </ion-col>
+            </ion-row>
+        </ion-col>
+      </ion-row>
+</ion-grid>

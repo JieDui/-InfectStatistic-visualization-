@@ -1,0 +1,64 @@
+.country {
+  font-weight: bold;
+  //font-optical-sizing: auto;
+  font-size: 150%;
+}
+.last-date {
+  color: #c1c2c3;
+  font-size: 80%;
+  text-align: right;
+}
+.patient-types {
+  color: #424344;
+  font-family: "PingFang SC", sans-serif;
+  padding-left: 5%;
+}
+
+.confirmed {
+  color: #bb2e06;
+  font-size: 180%;
+  font-weight: bold;
+}
+
+.confirmed-add {
+  color: #bc2f04;
+}
+
+.cured {
+  color: #107e4a;
+  font-size: 180%;
+  font-weight: bold;
+}
+
+.cured-add {
+  color: #16a666;
+}
+
+.dead-number {
+  //font: 200% bold;
+  font-size: 180%;
+  font-weight: bold;
+  color: #494a4b;
+}
+.current-confirmed {
+  color: #f93d07;
+  font-size: 180%;
+  font-weight: bold;
+}
+.current-suspected {
+  color: #db7108;
+  font-size: 180%;
+  font-weight: bold;
+}
+.current-confirmed-add {
+  color: #f93d07;
+}
+.current-suspected-add {
+  color: #e37b36;
+}
+.than-yesterday {
+  color: #9a9b9c;
+}
+ion-col {
+  text-align: center;
+}
