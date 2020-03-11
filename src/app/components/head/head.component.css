@@ -4,7 +4,7 @@
 
 .last-date {
   color: #c1c2c3;
-  font-size: 80%;
+  font-size: 60%;
   text-align: right; }
 
 .patient-types {
@@ -51,6 +51,14 @@
 
 .than-yesterday {
   color: #9a9b9c; }
+
+.comparison {
+  font-size: 80%; }
+
+.head-div {
+  border-radius: 10px;
+  box-shadow: 0 0 12px #777777;
+  margin: 10px 10px 0; }
 
 ion-col {
   text-align: center; }

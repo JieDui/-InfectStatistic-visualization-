@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import {HeadComponent} from '../components/head/head.component';
 import {ChinaChartComponent} from '../components/china-chart/china-chart.component';
+import {LatestInformationComponent} from '../components/latest-information/latest-information.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import {ChinaChartComponent} from '../components/china-chart/china-chart.compone
       }
     ])
   ],
-    declarations: [HomePage, HeadComponent, ChinaChartComponent]
+    declarations: [HomePage, HeadComponent, ChinaChartComponent, LatestInformationComponent]
 })
 export class HomePageModule {}
