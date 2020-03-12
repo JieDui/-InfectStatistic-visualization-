@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import 'echarts/map/js/china.js';
 
 @Component({
@@ -31,7 +32,8 @@ export class ChinaMapComponent implements OnInit {
          76, 46, 44, 45, 39, 31, 29, 18, 14, 17, 14, 12, 8, 1, 7, 12, 9]
     ];
   regionOptions: any;
-  constructor() { }
+  whichDay: any;
+  constructor(private router: Router) { }
 
   ngOnInit() {
     let sum = []
@@ -53,12 +55,15 @@ export class ChinaMapComponent implements OnInit {
           width: '90%',
           data: this.days,
           tooltip: {
-            formatter: this.days
+            formatter(params) {
+                alert(params.day);
+            }
           },
         },
         tooltip: {
           show: true,
           formatter(params) {
+            window.location.href = '/detail?name=' + params.name + '&day=1';
             return params.name + '：' + params.data.value;
           },
           triggerOn: 'click'
@@ -197,6 +202,7 @@ export class ChinaMapComponent implements OnInit {
           value: this.data[n][j]
         });
       }
+      this.whichDay = this.days[n];
       this.regionOptions.options.push({
         title: [
           {

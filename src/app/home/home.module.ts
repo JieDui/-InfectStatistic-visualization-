@@ -13,6 +13,7 @@ import {RumorRefutingComponent} from '../components/rumor-refuting/rumor-refutin
 import {SciencePopularComponent} from '../components/science-popular/science-popular.component';
 import {ChinaMapComponent} from '../charts/china-map/china-map.component';
 import {HttpClient} from '@angular/common/http';
+import {LineChartComponent} from '../charts/line-chart/line-chart.component';
 
 @NgModule({
   imports: [
@@ -23,13 +24,13 @@ import {HttpClient} from '@angular/common/http';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: HomePage,
       }
     ])
   ],
   providers: [ HttpClient ],
   declarations: [HomePage, HeadComponent, ChinaChartComponent,
                  LatestInformationComponent, RumorRefutingComponent,
-                 SciencePopularComponent, ChinaMapComponent]
+                 SciencePopularComponent, ChinaMapComponent, LineChartComponent]
 })
 export class HomePageModule {}
