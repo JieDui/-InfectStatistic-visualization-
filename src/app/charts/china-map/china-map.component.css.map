@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,kBAAK;EACH,MAAM,EAAE,gBAAgB;EACxB,OAAO,EAAE,CAAC;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK",
+"sources": ["china-map.component.scss"],
+"names": [],
+"file": "china-map.component.css"
+}
