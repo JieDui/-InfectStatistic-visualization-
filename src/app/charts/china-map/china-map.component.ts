@@ -34,6 +34,13 @@ export class ChinaMapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let sum = []
+    for (let i = 0; i < this.data.length; ++i) {
+        sum[i] = 0;
+        for (let j = 0; j < this.data[i].length; ++j) {
+            sum[i] = sum[i] + this.data[i][j]
+        }
+    }
     this.regionOptions = {
       baseOption: {
         timeline: {
@@ -54,6 +61,7 @@ export class ChinaMapComponent implements OnInit {
           formatter(params) {
             return params.name + '：' + params.data.value;
           },
+          triggerOn: 'click'
         },
         visualMap: {
           type: 'piecewise',
@@ -192,7 +200,7 @@ export class ChinaMapComponent implements OnInit {
       this.regionOptions.options.push({
         title: [
           {
-            text: this.days[n] + '新型冠状病毒全国感染人数',
+            text: this.days[n] + '新型冠状病毒全国感染人数' + sum[n],
             textStyle: {
               color: '#2D3E53',
               fontSize: 28
