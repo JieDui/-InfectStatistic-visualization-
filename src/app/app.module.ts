@@ -15,7 +15,7 @@ import {HttpClient, HttpClientJsonpModule, HttpClientModule} from '@angular/comm
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HomePageModule, HttpClientJsonpModule],
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HomePageModule, HttpClientJsonpModule, HttpClientModule],
     providers: [
         StatusBar,
         SplashScreen,
