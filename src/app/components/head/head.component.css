@@ -58,7 +58,8 @@
 .head-div {
   border-radius: 10px;
   box-shadow: 0 0 12px #777777;
-  margin: 10px 10px 0; }
+  width: 95%;
+  margin: 10px auto; }
 
 ion-col {
   text-align: center; }
