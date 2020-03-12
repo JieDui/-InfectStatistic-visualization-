@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-head',
-  templateUrl: './head.component.html',
-  styleUrls: ['./head.component.scss'],
+    selector: 'app-head',
+    templateUrl: './head.component.html',
+    styleUrls: ['./head.component.scss'],
 })
 export class HeadComponent implements OnInit {
 
-  constructor() { }
+    public infected = 80933;
+    public cured = 60114;
 
-  ngOnInit() {}
+    constructor() {
+    }
 
+    ngOnInit() {
+    }
 }
