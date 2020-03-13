@@ -1,0 +1,12 @@
+app-china-map .map {
+  padding: 0;
+  height: auto; }
+
+.map {
+  border-radius: 10px;
+  box-shadow: 0 0 12px #777777;
+  width: 95%;
+  height: 90%;
+  margin: auto; }
+
+/*# sourceMappingURL=china-map.component.css.map */

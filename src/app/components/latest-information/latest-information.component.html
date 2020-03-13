@@ -1,0 +1,13 @@
+<ion-content >
+  <div class="container">
+    <h3>疫情新闻</h3>
+    <div class="timeline-item" date-is="2020-03-12" *ngFor="let item of newsList">
+      <span></span>
+      <h2>{{item.title}}</h2>
+      <p>
+        {{item.summary}}
+      </p>
+    </div>
+  </div>
+</ion-content>
+<button (click)="getData()">获取数据</button>
