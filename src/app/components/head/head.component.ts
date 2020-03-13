@@ -7,19 +7,32 @@ import {HttpClient} from '@angular/common/http';
     styleUrls: ['./head.component.scss'],
 })
 export class HeadComponent implements OnInit {
-
+    public store: any;
     public dataSet = new DataSet();
-
+    public data: any;
     constructor(private http: HttpClient) {
     }
 
     ngOnInit() {
-        const api = 'http://www.dzyong.top:3005/yiqing/total';
-        this.http.get(api)
+        const api1 = 'http://www.dzyong.top:3005/yiqing/total';
+        this.http.get(api1)
             .subscribe((response: any) => {
                 const list: any = response.data[0];
                 this.dataSet.setProperties(list.diagnosed, list.cured, list.death, list.suspect, list.date);
             });
+        const api2 = 'http://www.dzyong.top:3005/yiqing/history';
+        this.http.get(api2)
+            .subscribe((response: any) => {
+                console.log(response.data);
+                this.data = response.data;
+            });
+    }
+    changeHead() {
+      this.dataSet.diagnosed = this.store.confirmedNum;
+      this.dataSet.cured = this.store.curesNum;
+      this.dataSet.suspect = this.store.suspectedNum;
+      this.dataSet.death = this.store.deathsNum;
+      this.data.date = this.store.date;
     }
 }
 
