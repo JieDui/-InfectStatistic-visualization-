@@ -1,17 +1,17 @@
 <div class="head-div">
     <ion-grid class="patient-types">
-        <p class="country">全国疫情 <span class="last-date">统计截止{{dataSet.date}}</span></p>
+        <p class="country">全国疫情 <span class="last-date">统计截止{{today.date}}</span></p>
         <ion-row>
             <ion-col size-sm>
                 <ion-row>
                     <ion-col>
                         累计确诊
                         <br>
-                        <span class="confirmed">{{dataSet.diagnosed}}</span>
+                        <span class="confirmed">{{today.confirmed}}</span>
                         <br>
                         <span class="comparison">
                         <span class="than-yesterday">较昨日</span>
-                        <span class="confirmed-add">+29</span>
+                        <span class="confirmed-add">{{getIncreases(today.confirmed, yesterday.confirmed)}}</span>
                     </span>
                     </ion-col>
                 </ion-row>
@@ -20,11 +20,11 @@
                 <ion-row>
                     <ion-col>累计治愈
                         <br>
-                        <span class="cured">{{dataSet.cured}}</span>
+                        <span class="cured">{{today.cured}}</span>
                         <br>
                         <span class="comparison">
                         <span class="than-yesterday">较昨日</span>
-                        <span class="cured-add">+1430</span>
+                        <span class="cured-add">{{getIncreases(today.cured, yesterday.cured)}}</span>
                     </span>
                     </ion-col>
                 </ion-row>
@@ -33,11 +33,11 @@
                 <ion-row>
                     <ion-col>累计死亡
                         <br>
-                        <span class="dead-number">{{dataSet.death}}</span>
+                        <span class="dead-number">{{today.death}}</span>
                         <br>
                         <span class="comparison">
                         <span class="than-yesterday">较昨日</span>
-                        <span class="dead-add">+29</span>
+                        <span class="dead-add">{{getIncreases(today.death, yesterday.death)}}</span>
                     </span>
                     </ion-col>
                 </ion-row>
@@ -48,11 +48,12 @@
                 <ion-row>
                     <ion-col>现有确诊
                         <br>
-                        <span class="current-confirmed">{{dataSet.getCurrentDiagnosed()}}</span>
+                        <span class="current-confirmed">{{today.getCurrentConfirmed()}}</span>
                         <br>
                         <span class="comparison">
                         <span class="than-yesterday">较昨日</span>
-                        <span class="current-confirmed-add">-1418</span>
+                        <span class="current-confirmed-add">{{getIncreases(today.getCurrentConfirmed(),
+                            yesterday.getCurrentConfirmed())}}</span>
                     </span>
                     </ion-col>
                 </ion-row>
@@ -62,11 +63,11 @@
                     <ion-col>
                         <span>现有疑似</span>
                         <br>
-                        <span class="current-suspected">{{dataSet.suspect}}</span>
+                        <span class="current-suspected">{{today.suspect}}</span>
                         <br>
                         <span class="comparison">
                         <span class="than-yesterday">较昨日</span>
-                        <span class="current-suspected-add">+36</span>
+                        <span class="current-suspected-add">{{getIncreases(today.suspect, yesterday.suspect)}}</span>
                     </span>
                     </ion-col>
                 </ion-row>

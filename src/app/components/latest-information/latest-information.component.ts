@@ -37,7 +37,7 @@ export class LatestInformationComponent implements OnInit {
         this.http.get(newsApi)
             .subscribe((response: any) => {
                 this.newsList = response.data;
-                console.log(response);
+                // console.log(response);
             });
     }
 

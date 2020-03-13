@@ -8,38 +8,45 @@ import {HttpClient} from '@angular/common/http';
 })
 export class HeadComponent implements OnInit {
 
-    public dataSet = new DataSet();
+    today = new DataSet();
+    yesterday = new DataSet();
 
     constructor(private http: HttpClient) {
     }
 
     ngOnInit() {
-        const api = 'http://www.dzyong.top:3005/yiqing/total';
+        const api = 'http://www.dzyong.top:3005/yiqing/history';
         this.http.get(api)
             .subscribe((response: any) => {
-                const list: any = response.data[0];
-                this.dataSet.setProperties(list.diagnosed, list.cured, list.death, list.suspect, list.date);
+                const index = response.data.length;
+                this.today.setProperties(response.data[index - 1]);
+                this.yesterday.setProperties(response.data[index - 2]);
             });
+    }
+
+    getIncreases(today, yesterday) {
+        const increases = today - yesterday;
+        return increases < 0 ? increases : '+' + increases;
     }
 }
 
 class DataSet {
 
-    diagnosed = 0;
+    confirmed = 0;
     cured = 0;
     death = 0;
     suspect = 0;
     date = null;
 
-    setProperties(diagnosed, cured, death, suspect, date) {
-        this.diagnosed = diagnosed;
-        this.cured = cured;
-        this.suspect = suspect;
-        this.death = death;
-        this.date = date;
+    setProperties(day) {
+        this.confirmed = day.confirmedNum;
+        this.cured = day.curesNum;
+        this.suspect = day.suspectedNum;
+        this.death = day.deathsNum;
+        this.date = day.date;
     }
 
-    getCurrentDiagnosed() {
-        return this.diagnosed - this.cured;
+    getCurrentConfirmed() {
+        return this.confirmed - this.cured - this.death - this.suspect;
     }
 }
