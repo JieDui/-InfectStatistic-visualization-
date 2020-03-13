@@ -19,6 +19,7 @@ h1 {
 }
 
 p {
+  font-family: 'PingFang SC', sans-serif;
   font-size: 5rem;
 }
 
@@ -33,17 +34,27 @@ p {
   box-shadow: 0 0 12px #777777;
 }
 
+.date {
+  font-size: 60%;
+  color: #c1c2c3;
+}
+
+.quote {
+  font-size: 70%;
+}
+
 // ----------------  THE FONTS
 
 $border-color: rgba(black, .3);
 
 .timeline-item {
-  padding: 3em 2em 2em;
+  padding: 2em 2em;
   position: relative;
   color: rgba(black, .7);
   border-left: 2px solid $border-color;
 
   p {
+    font-family: 'PingFang SC', sans-serif;
     font-size: 1rem;
   }
 
@@ -54,7 +65,7 @@ $border-color: rgba(black, .3);
     font-weight: bold;
     top: 1em;
     display: block;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'PingFang SC', sans-serif;
     font-weight: 700;
     font-size: .785rem;
   }
