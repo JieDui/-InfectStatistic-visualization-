@@ -7,7 +7,6 @@ import {HttpClient} from '@angular/common/http';
     styleUrls: ['./latest-information.component.scss'],
 })
 
-// @Injectable()
 export class LatestInformationComponent implements OnInit {
 
     public newsList: any;
@@ -15,33 +14,12 @@ export class LatestInformationComponent implements OnInit {
     constructor(public http: HttpClient) {
     }
 
-    // private article: Article;
-    //
-    // jsonURL = 'assets/articles.json';
-    //
-    // getArticle() {
-    //     return this.http.get(this.jsonURL);
-    // }
-    //
-    // showArticle() {
-    //     this.getArticle()
-    //         .subscribe((data: Article) => this.article = {
-    //             id: data.id,
-    //             title: data.title,
-    //             content: data.content
-    //         });
-    // }
-
     ngOnInit() {
         const newsApi = 'http://www.dzyong.top:3005/yiqing/news?pageNum=1';
         this.http.get(newsApi)
             .subscribe((response: any) => {
+                console.log(response.data);
                 this.newsList = response.data;
-                console.log(response);
             });
-    }
-
-    getData() {
-
     }
 }
