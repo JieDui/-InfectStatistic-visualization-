@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+            import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-detail',
@@ -80,52 +80,35 @@ export class DetailPage implements OnInit {
       '河南', '黑龙江', '湖北', '湖南', '吉林', '江苏', '江西', '辽宁', '内蒙古',
       '宁夏', '青海', '山东', '山东', '山西', '陕西', '上海', '四川', '天津', '新疆',
       '云南', '浙江', '重庆', '西藏', '澳门', '台湾', '香港'];
-  temp: any = [
-        [270, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [375, 26, 5, 1, 1, 0, 5, 1, 2, 2, 0, 10, 0, 9, 0, 0, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [444, 32, 10, 9, 5, 4, 9, 6, 3, 8, 1, 14, 1, 16, 2, 1, 0, 1, 4, 2, 2, 1, 3, 0, 0, 0, 0, 1, 3, 0, 0, 0, 0, 0],
-        [549, 53, 43, 24, 9, 15, 27, 9, 7, 15, 9, 26, 5, 20, 13, 2, 3, 2, 8, 4, 4, 1, 5, 2, 1, 2, 2, 3, 3, 0, 0, 1, 2, 0],
-        [729, 78, 62, 43, 32, 39, 57, 21, 18, 28, 18, 36, 10, 33, 23, 8, 5, 5, 8, 9, 12, 6, 8, 4, 2, 3, 3, 4, 4, 0, 0, 2, 4, 2],
-        [1052, 98, 104, 69, 83, 60, 75, 39, 36, 44, 31, 51, 18, 40, 33, 13, 15, 11, 19, 15, 17, 9, 10, 7, 7, 4, 4, 4, 5, 1, 0, 3, 5, 4],
-        [1423, 146, 128, 100, 128, 70, 110, 63, 48, 69, 47, 68, 29, 53, 46, 18, 22, 16, 22, 21, 22, 13, 14, 14, 11, 5, 7, 6, 7, 4, 0, 4, 6, 6],
-        [2714, 188, 173, 143, 168, 106, 132, 87, 72, 90, 70, 80, 59, 66, 51, 33, 35, 26, 33,
-            30, 27, 20, 23, 19, 13, 10, 10, 8, 9, 6, 0, 6, 8, 7],
-        [3354, 241, 296, 221, 206, 152, 147, 121, 109, 108, 99, 91, 82, 80, 58, 48, 46, 51,
-            43, 37, 36, 27, 24, 24, 16, 13, 12, 9, 9, 6, 0, 6, 10, 8],
-        [4586, 272, 296, 221, 206, 152, 165, 130, 162, 108, 99, 111, 84, 96, 58, 48, 56, 55,
-            43, 38, 39, 35, 27, 24, 16, 13, 12, 9, 9, 6, 1, 7, 10, 8],
-        [5806, 354, 428, 277, 278, 200, 206, 158, 162, 142, 129, 121, 101, 128, 87, 65, 66,
-            76, 46, 44, 45, 39, 31, 29, 18, 14, 17, 14, 12, 8, 1, 7, 12, 9]
-    ];
   regionOptions: any;
   province: any;
   id = 0;
-  public dataSets: any;
+  public store = this.days[0];
   public dataSet = new DataSet();
   constructor() { }
 
   ngOnInit() {
     this.province = decodeURI(window.location.search.split('=')[1]);
     for (let j = 0; j < this.provinces.length; ++j) {
-        if (this.provinces[j] === this.province) {
-            this.id = j;
-            break;
-        }
+      if (this.provinces[j] === this.province) {
+        this.id = j;
+        break;
+      }
     }
     alert(this.id);
-    console.log(this.id);
     let sum = [];
-    for (let i = 0; i < this.temp.length; ++i) {
-        sum[i] = 0;
-        for (let j = 0; j < this.temp[i].length; ++j) {
-            sum[i] = sum[i] + this.temp[i][j];
-        }
+    for (let i = 0; i < this.data.length; ++i) {
+      sum[i] = this.data[i][this.id * 4];
     }
-    for (let i = 0; i < this.days.length; ++i) sum[i] = i * 1000 + 8 * i;
+    this.dataSet.setProperties(this.data[0][this.id * 4],
+    			this.data[0][this.id * 4 + 1], 
+    			this.data[0][this.id * 4 + 2],
+		        this.data[0][this.id * 4 + 3],
+		       	this.days[0]);
     this.regionOptions = {
       title: [
         {
-          text: '全国疫情累计感染曲线',
+          text: '省份疫情曲线',
           textStyle: {
             color: '#2D3E53',
             fontSize: 28
@@ -148,6 +131,20 @@ export class DetailPage implements OnInit {
       }]
     };
   }
+  
+  changeHead() {
+    let i = 0;
+    for (i = 0; i < this.days.length; ++i) {
+      if (this.store === this.days[i]) {
+        break;
+      }
+    }
+    this.dataSet.setProperties(this.data[i][this.id * 4],
+                   this.data[i][this.id * 4 + 1],
+                   this.data[i][this.id * 4 + 2],
+                   this.data[i][this.id * 4 + 3],
+                   this.days[i]);
+  }
 }
 
 class DataSet {
@@ -157,7 +154,7 @@ class DataSet {
     death = 0;
     date = null;
 
-    setProperties(now, diagnosed, cured, death, date) {
+    setProperties(now, diagnosed, death, cured, date) {
         this.now = now;
         this.diagnosed = diagnosed;
         this.cured = cured;
