@@ -99,7 +99,6 @@ export class DetailPage implements OnInit {
         break;
       }
     }
-    alert(this.id);
     for (let i = 0; i < this.data.length; ++i) {
       this.sum[i] = this.data[i][this.id * 4];
     }
@@ -108,6 +107,7 @@ export class DetailPage implements OnInit {
     			this.data[0][this.id * 4 + 2],
 		        this.data[0][this.id * 4 + 3],
 		       	this.days[0]);
+    this.dataSet.setAdd(0, 0, 0, 0);
     this.regionOptions = {
       title: [
         {
@@ -148,10 +148,16 @@ export class DetailPage implements OnInit {
                    this.data[i][this.id * 4 + 2],
                    this.data[i][this.id * 4 + 3],
                    this.days[i]);
+    if (i !== 0) {
+        this.dataSet.setAdd(this.data[i][this.id * 4] - this.data[i - 1][this.id * 4],
+            this.data[i][this.id * 4 + 1] - this.data[i - 1][this.id * 4 + 1],
+            this.data[i][this.id * 4 + 2] - this.data[i - 1][this.id * 4 + 2],
+            this.data[i][this.id * 4 + 3] - this.data[i - 1][this.id * 4 + 3],
+        );
+    }
   }
   
   showNow() {
-    alert("hello");
     for (let i = 0; i < this.data.length; ++i) {
       this.sum[i] = this.data[i][this.id * 4];
     }
@@ -160,7 +166,6 @@ export class DetailPage implements OnInit {
   }
   
   showTotal() {
-    alert("hello");
     for (let i = 0; i < this.data.length; ++i) {
       this.sum[i] = this.data[i][this.id * 4 + 1];
     }
@@ -169,7 +174,6 @@ export class DetailPage implements OnInit {
   }
   
   showCure() {
-    alert("hello");
     for (let i = 0; i < this.data.length; ++i) {
       this.sum[i] = this.data[i][this.id * 4 + 2];
     }
@@ -178,7 +182,6 @@ export class DetailPage implements OnInit {
   }
 
   showDeath() {
-    alert("hello");
     for (let i = 0; i < this.data.length; ++i) {
       this.sum[i] = this.data[i][this.id * 4 + 3];
     }
@@ -192,6 +195,10 @@ class DataSet {
     cured = 0;
     death = 0;
     date = null;
+    add1 = 0;
+    add2 = 0;
+    add3 = 0;
+    add4 = 0;
 
     setProperties(now, diagnosed, death, cured, date) {
         this.now = now;
@@ -199,6 +206,16 @@ class DataSet {
         this.cured = cured;
         this.death = death;
         this.date = date;
+    }
+
+    changeAdd(add) {
+      return add < 0 ? add : '+' + add;
+    }
+    setAdd(add1, add2, add3, add4){
+        this.add1 = this.changeAdd(add1);
+        this.add2 = this.changeAdd(add2);
+        this.add3 = this.changeAdd(add3);
+        this.add4 = this.changeAdd(add4);
     }
 
 }

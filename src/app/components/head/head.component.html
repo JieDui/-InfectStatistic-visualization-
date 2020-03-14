@@ -5,7 +5,7 @@
             <p class="country">全国疫情 <span class="last-date">统计截止{{dataSet.date}}</span></p>
         </ion-col>
         <ion-col>
-            <button (click)="changeHead()">跳转</button>
+            <ion-button (click)="changeHead()">跳转</ion-button>
             <ion-select [(ngModel)]="store" data-tap-disabled="true">
 		<h1>当前数据统计时间</h1>    
                 <ion-select-option *ngFor="let d of data;" [value]="d">
@@ -24,7 +24,7 @@
             <br>
             <span class="comparison">
             <span class="than-yesterday">较昨日</span>
-            <span class="confirmed-add">+29</span>
+            <span class="confirmed-add">{{dataSet.add2}}</span>
           </span>
           </ion-col>
         </ion-row>
@@ -37,7 +37,7 @@
             <br>
             <span class="comparison">
             <span class="than-yesterday">较昨日</span>
-            <span class="cured-add">+1430</span>
+            <span class="cured-add">{{dataSet.add3}}</span>
           </span>
           </ion-col>
         </ion-row>
@@ -46,11 +46,11 @@
         <ion-row>
           <ion-col>累计死亡
             <br>
-            <span class="dead-number">{{dataSet.death}}</span>
+	    <span class="dead-number">{{dataSet.death}}</span>
             <br>
             <span class="comparison">
             <span class="than-yesterday">较昨日</span>
-            <span class="dead-add">+29</span>
+            <span class="dead-add">{{dataSet.add4}}</span>
           </span>
           </ion-col>
         </ion-row>
@@ -61,11 +61,11 @@
         <ion-row>
           <ion-col>现有确诊
             <br>
-            <span class="current-confirmed">{{dataSet.getCurrentDiagnosed()}}</span>
+            <span class="current-confirmed">{{dataSet.now}}</span>
             <br>
             <span class="comparison">
             <span class="than-yesterday">较昨日</span>
-            <span class="current-confirmed-add">-1418</span>
+            <span class="current-confirmed-add">{{dataSet.add1}}</span>
           </span>
           </ion-col>
         </ion-row>
@@ -81,7 +81,7 @@
             <br>
             <span class="comparison">
             <span class="than-yesterday">较昨日</span>
-            <span class="current-suspected-add">+36</span>
+            <span class="current-suspected-add">{{dataSet.add5}}</span>
           </span>
           </ion-col>
         </ion-row>
