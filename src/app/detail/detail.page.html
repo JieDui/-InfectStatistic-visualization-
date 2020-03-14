@@ -13,7 +13,7 @@
 	 	<p class="country">省份疫情详情<span class="last-date">  统计截止{{dataSet.date}}</span></p>
         </ion-col>
         <ion-col>
-          <button (click)="changeHead()">跳转</button>
+          <ion-button (click)="changeHead()">跳转</ion-button>
           <ion-select [(ngModel)]="store" data-tap-disabled="true">
 	    <h1>当前数据统计时间</h1>			  
             <ion-select-option *ngFor="let d of days;" [value]="d">
@@ -84,13 +84,14 @@
   <ion-card>
     <br/>	  
     <ion-row>
-      <ion-col><ion-button round>现有确诊趋势</ion-button></ion-col>
-      <ion-col><ion-button round>累计确诊趋势</ion-button></ion-col>
-      <ion-col><ion-button round>累计治愈趋势</ion-button></ion-col>
+      <ion-col><ion-button (click)="showNow()" round>现有确诊趋势</ion-button></ion-col>
+      <ion-col><ion-button (click)="showTotal()" round>累计确诊趋势</ion-button></ion-col>
+      <ion-col><ion-button (click)="showCure()" round>累计治愈趋势</ion-button></ion-col>
+      <ion-col><ion-button (click)="showDeath()" round>累计死亡趋势</ion-button></ion-col>
     </ion-row>
     <br/>
     <ion-scroll overflow-scroll="true" direction="x">
-        <div echarts [options]="regionOptions" style="width: 100%; height: 820px; margin: 0px; padding: 0px"></div>
+        <div echarts id="chart" [options]="regionOptions" style="width: 100%; height: 820px; margin: 0px; padding: 0px"></div>
     </ion-scroll>
   </ion-card>
 </ion-content>

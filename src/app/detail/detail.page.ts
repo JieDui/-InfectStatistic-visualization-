@@ -1,4 +1,5 @@
-            import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as echarts from 'echarts/lib/echarts';
 
 @Component({
   selector: 'app-detail',
@@ -83,11 +84,14 @@ export class DetailPage implements OnInit {
   regionOptions: any;
   province: any;
   id = 0;
+  sum = [];
   public store = this.days[0];
   public dataSet = new DataSet();
+  public myChart: any;
   constructor() { }
 
   ngOnInit() {
+    this.myChart = echarts.init(document.getElementById('chart') as HTMLDivElement);
     this.province = decodeURI(window.location.search.split('=')[1]);
     for (let j = 0; j < this.provinces.length; ++j) {
       if (this.provinces[j] === this.province) {
@@ -96,9 +100,8 @@ export class DetailPage implements OnInit {
       }
     }
     alert(this.id);
-    let sum = [];
     for (let i = 0; i < this.data.length; ++i) {
-      sum[i] = this.data[i][this.id * 4];
+      this.sum[i] = this.data[i][this.id * 4];
     }
     this.dataSet.setProperties(this.data[0][this.id * 4],
     			this.data[0][this.id * 4 + 1], 
@@ -125,11 +128,12 @@ export class DetailPage implements OnInit {
         type: 'value'
       },
       series: [{
-        data: sum,
+        data: this.sum,
         type: 'line',
         smooth: true
       }]
     };
+    this.myChart.setOption(this.regionOptions);
   }
   
   changeHead() {
@@ -144,6 +148,41 @@ export class DetailPage implements OnInit {
                    this.data[i][this.id * 4 + 2],
                    this.data[i][this.id * 4 + 3],
                    this.days[i]);
+  }
+  
+  showNow() {
+    alert("hello");
+    for (let i = 0; i < this.data.length; ++i) {
+      this.sum[i] = this.data[i][this.id * 4];
+    }
+    this.regionOptions.series.data = this.sum;
+    this.myChart.setOption(this.regionOptions);
+  }
+  
+  showTotal() {
+    alert("hello");
+    for (let i = 0; i < this.data.length; ++i) {
+      this.sum[i] = this.data[i][this.id * 4 + 1];
+    }
+    this.regionOptions.series.data = this.sum;
+    this.myChart.setOption(this.regionOptions);
+  }
+  
+  showCure() {
+    alert("hello");
+    for (let i = 0; i < this.data.length; ++i) {
+      this.sum[i] = this.data[i][this.id * 4 + 2];
+    }
+    this.regionOptions.series.data = this.sum;
+    this.myChart.setOption(this.regionOptions);
+  }
+
+  showDeath() {
+    alert("hello");
+    for (let i = 0; i < this.data.length; ++i) {
+      this.sum[i] = this.data[i][this.id * 4 + 3];
+    }
+    this.regionOptions.series.data = this.sum;
   }
 }
 
