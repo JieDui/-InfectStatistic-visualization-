@@ -1,12 +1,14 @@
-<ion-card>
+<ion-content >
   <div class="container">
     <h3>疫情新闻</h3>
-    <div class="timeline-item" date-is="2020-03-12" *ngFor="let item of newsList">
-      <span></span>
+    <div *ngFor="let item of newsList" class="timeline-item">
+
       <h2>{{item.title}}</h2>
+      <span class="date">{{item.pubDate}}</span>
       <p>
         {{item.summary}}
       </p>
+      <q class="quote"><a [href]="item.sourceUrl">查看来源</a></q>
     </div>
   </div>
-</ion-card>
+</ion-content>
