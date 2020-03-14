@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## [作业链接](https://edu.cnblogs.com/campus/fzu/2020SpringW/homework/10456) 
 ##结对学号 
 221701232  和 221701223
-##项目介绍
+## 项目介绍
 该项目根据作业链接中的要求对疫情数据进行可视化,  该项目用到angular 和 ionic框架的纯前端技术实现一个移动端网页展示疫情数据。
-##项目构建
+## 项目构建
 ```
 ## Development server
 
