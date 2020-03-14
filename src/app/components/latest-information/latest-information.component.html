@@ -1,28 +1,14 @@
 <ion-content >
-
   <div class="container">
     <h3>疫情新闻</h3>
-    <div class="timeline-item" date-is="2020-03-12">
-      <span>sfasf</span>
-      <h2>Hello, 'Im a single div responsive timeline without mediaQueries!</h2>
-      <p>
-        I'm speaking with myself, number one, because I have a very good brain and I've said a lot of things. I write the best placeholder text, and I'm the biggest developer on the web by far... While that's mock-ups and this is politics, are they really so different? I think the only card she has is the Lorem card.
-      </p>
-    </div>
+    <div *ngFor="let item of newsList" class="timeline-item">
 
-    <div class="timeline-item" date-is='20-07-1990'>
-      <h2>Oeehhh, that's awesome.. Me too!</h2>
+      <h2>{{item.title}}</h2>
+      <span class="date">{{item.pubDate}}</span>
       <p>
-        I'm speaking with myself, number one, because I have a very good brain and I've said a lot of things. I write the best placeholder text, and I'm the biggest developer on the web by far... While that's mock-ups and this is politics, are they really so different? I think the only card she has is the Lorem card.
+        {{item.summary}}
       </p>
+      <q class="quote"><a [href]="item.sourceUrl">查看来源</a></q>
     </div>
-
-    <div class="timeline-item" date-is='20-07-1990'>
-      <h2>I'm ::last-child so my border fades ^__^</h2>
-      <p>
-        I'm speaking with myself, number one, because I have a very good brain and I've said a lot of things. I write the best placeholder text, and I'm the biggest developer on the web by far... While that's mock-ups and this is politics, are they really so different? I think the only card she has is the Lorem card.
-      </p>
-    </div>
-
   </div>
 </ion-content>

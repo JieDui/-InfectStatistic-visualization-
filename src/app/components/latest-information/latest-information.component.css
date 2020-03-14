@@ -11,6 +11,7 @@ h1 {
   margin-bottom: .5em; }
 
 p {
+  font-family: 'PingFang SC', sans-serif;
   font-size: 5rem; }
 
 .container {
@@ -20,12 +21,20 @@ p {
   border-radius: 10px;
   box-shadow: 0 0 12px #777777; }
 
+.date {
+  font-size: 60%;
+  color: #c1c2c3; }
+
+.quote {
+  font-size: 70%; }
+
 .timeline-item {
-  padding: 3em 2em 2em;
+  padding: 2em 2em;
   position: relative;
   color: rgba(0, 0, 0, 0.7);
   border-left: 2px solid rgba(0, 0, 0, 0.3); }
   .timeline-item p {
+    font-family: 'PingFang SC', sans-serif;
     font-size: 1rem; }
   .timeline-item::before {
     content: attr(date-is);
@@ -34,7 +43,7 @@ p {
     font-weight: bold;
     top: 1em;
     display: block;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'PingFang SC', sans-serif;
     font-weight: 700;
     font-size: .785rem; }
   .timeline-item::after {
