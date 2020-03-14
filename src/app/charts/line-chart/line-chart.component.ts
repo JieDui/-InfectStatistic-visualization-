@@ -28,11 +28,11 @@ export class LineChartComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let sum = []
+    let sum = [];
     for (let i = 0; i < this.data.length; ++i) {
       sum[i] = 0;
       for (let j = 0; j < this.data[i].length; ++j) {
-	    sum[i] = sum[i] + this.data[i][j]
+	    sum[i] = sum[i] + this.data[i][j];
       }
     }
     this.regionOptions = {
@@ -59,7 +59,6 @@ export class LineChartComponent implements OnInit {
         type: 'line',
         smooth: true
       }]
-    }
+    };
   }
-
 }

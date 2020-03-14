@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { DetailPageRoutingModule } from './detail-routing.module';
 
 import { DetailPage } from './detail.page';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 @NgModule({
   imports: [
+    NgxEchartsModule,
     CommonModule,
     FormsModule,
     IonicModule,

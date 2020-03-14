@@ -63,7 +63,7 @@ export class ChinaMapComponent implements OnInit {
         tooltip: {
           show: true,
           formatter(params) {
-            window.location.href = '/detail?name=' + params.name + '&day=1';
+            window.location.href = '/detail?name=' + params.name;
             return params.name + '：' + params.data.value;
           },
           triggerOn: 'click'
